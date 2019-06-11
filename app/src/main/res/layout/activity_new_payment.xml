@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/final_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="125dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:srcCompat="@drawable/img_pagolinea" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/rounded_edittext"
+        android:cursorVisible="true"
+        android:textCursorDrawable="@null"
+        android:textSize="15sp"
+        android:textColor="#333333"
+        android:drawablePadding="25dp"
+        android:hint="Ingrese digitos"
+        android:textColorHint="#d0d0d0"
+        android:paddingTop="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:drawableLeft="@drawable/ic_card"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/et_email"
+        android:background="#CCCCCC"></View>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/et_password"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/et_email"
+        android:textSize="15sp"
+        android:textColor="#333333"
+        android:cursorVisible="true"
+        android:drawablePadding="25dp"
+        android:hint="Ingrese mes y año"
+        android:textColorHint="#d0d0d0"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingStart="20dp"
+        android:drawableStart="@drawable/ic_month"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/et_password"
+        android:background="#CCCCCC"></View>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edittext_name"
+        android:ems="10"
+        android:background="#FFFFFF"
+        android:textCursorDrawable="@null"
+        android:layout_below="@+id/et_password"
+        android:textSize="15sp"
+        android:textColor="#333333"
+        android:cursorVisible="true"
+        android:drawablePadding="25dp"
+        android:hint="Ingrese CVV"
+        android:textColorHint="#d0d0d0"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingStart="20dp"
+        android:fontFamily="sans-serif"
+        android:drawableStart="@drawable/ic_cvv"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/edittext_name"
+        android:background="#CCCCCC"></View>
+
+    <EditText
+        android:id="@+id/edittext_lastname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:cursorVisible="true"
+        android:textCursorDrawable="@null"
+        android:textSize="15sp"
+        android:textColor="#333333"
+        android:drawablePadding="25dp"
+        android:hint="Ingrese apellidos"
+        android:textColorHint="#d0d0d0"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:drawableLeft="@drawable/ic_user"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/edittext_name"
+        android:layout_centerHorizontal="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/edittext_lastname"
+        android:background="#CCCCCC"></View>
+
+    <EditText
+        android:id="@+id/edittext_dni"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_edittext_below"
+        android:cursorVisible="true"
+        android:textCursorDrawable="@null"
+        android:textSize="20sp"
+        android:textColor="#333333"
+        android:drawablePadding="25dp"
+        android:hint="Ingrese DNI"
+        android:text="S./10"
+        android:enabled="false"
+        android:maxLength="8"
+        android:textColorHint="#d0d0d0"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:drawableLeft="@drawable/ic_total"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/edittext_lastname"
+        android:layout_centerHorizontal="true"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_list"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/edittext_dni"
+        android:text="Pagar"/>
+
+
+
+</RelativeLayout>
