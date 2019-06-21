@@ -23,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText email;
     EditText password;
     EditText identity_document;
+    EditText phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.et_email);
         password = (EditText) findViewById(R.id.et_password);
         identity_document = (EditText) findViewById(R.id.edittext_dni);
-
+        phone = (EditText) findViewById(R.id.edittext_phone);
 
     }
 
@@ -53,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         String remail = email.getText().toString();
         String rpassword = password.getText().toString();
         String ridentity_document = identity_document.getText().toString();
+        String rphone = phone.getText().toString();
 
 
 
@@ -60,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         Call<ResponseMessage> call = null;
 
-        call = service.createDoctor(remail, rpassword, rname, rlastname, "987234127",1,user_type, rdocument_type, ridentity_document);
+        call = service.createDoctor(remail, rpassword, rname, rlastname, rphone,1,user_type, rdocument_type, ridentity_document);
 
         call.enqueue(new Callback<ResponseMessage>() {
             @Override
@@ -75,8 +77,10 @@ public class RegisterActivity extends AppCompatActivity {
                         ResponseMessage responseMessage = response.body();
                         Log.d(TAG, "responseMessage: " + responseMessage);
 
-                        Toast.makeText(RegisterActivity.this, responseMessage.getMessage(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(RegisterActivity.this, responseMessage.getMessage(), Toast.LENGTH_LONG).show();
                         //finish();
+                        Toast.makeText(RegisterActivity.this, "Usuario registrado!", Toast.LENGTH_LONG).show();
+
                         Intent intent = new Intent(RegisterActivity.this,
                                 LoginActivity.class);
                         startActivity(intent);

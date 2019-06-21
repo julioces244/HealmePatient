@@ -28,6 +28,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -90,6 +91,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 return false;
             }
         });
+
         mapFragment.getMapAsync(this);
         return view;
     }
@@ -148,7 +150,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                     if (response.isSuccessful()) {
 
                         List<Office> offices = response.body();
-                        //Log.d(TAG, "doctors: " + users);
+                        //Log.d(TAG, "COORDENADAS: " + offices);
 
                         for(Office nada : offices){
                         UiSettings uiSettings = map.getUiSettings();
@@ -158,10 +160,16 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                             double latitud = Double.parseDouble(nada.getLatitude());
                             double longitud = Double.parseDouble(nada.getLongitude());
 
-                        LatLng sydney = new LatLng(latitud, longitud);
-                        map.addMarker(new MarkerOptions().position(sydney).title("Marker"));
-                        //map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-                        //map.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,11));
+                        LatLng ubi = new LatLng(-latitud, longitud);
+                            Log.d(TAG, "-------------: " + ubi);
+                        //map.addMarker(new MarkerOptions().position(ubi).title("Consultorio"));
+                        //map.moveCamera(CameraUpdateFactory.newLatLng(ubi));
+                        //map.animateCamera(CameraUpdateFactory.newLatLngZoom(ubi,11));
+                            map.addMarker(new MarkerOptions()
+                                    .position(ubi)
+                                    .title("Wrong Turn!")
+                                    .icon(BitmapDescriptorFactory
+                                            .fromResource(R.drawable.ic_office)));
                         }
 
 

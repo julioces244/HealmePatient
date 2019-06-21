@@ -134,6 +134,35 @@
         android:background="#CCCCCC"></View>
 
     <EditText
+        android:id="@+id/edittext_phone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:cursorVisible="true"
+        android:textCursorDrawable="@null"
+        android:textSize="15sp"
+        android:textColor="#333333"
+        android:drawablePadding="25dp"
+        android:hint="Ingrese telefono"
+        android:textColorHint="#d0d0d0"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:drawableLeft="@drawable/ic_phone_blue"
+        android:fontFamily="sans-serif"
+        android:layout_below="@+id/edittext_lastname"
+        android:layout_centerHorizontal="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/edittext_phone"
+        android:background="#CCCCCC"></View>
+
+    <EditText
         android:id="@+id/edittext_dni"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -152,7 +181,7 @@
         android:paddingLeft="20dp"
         android:drawableLeft="@drawable/ic_dni"
         android:fontFamily="sans-serif"
-        android:layout_below="@+id/edittext_lastname"
+        android:layout_below="@+id/edittext_phone"
         android:layout_centerHorizontal="true"/>
 
 

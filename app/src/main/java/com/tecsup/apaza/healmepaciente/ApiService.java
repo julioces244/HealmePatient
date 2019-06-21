@@ -13,11 +13,12 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ApiService {
 
-    String API_BASE_URL = "http://34.204.89.33";
+    String API_BASE_URL = "http://52.45.158.42";
 
     @GET("api/user")
     Call<List<User>> getUsers();
@@ -51,6 +52,17 @@ public interface ApiService {
 
     @GET("api/doctor/{id}")
     Call<Doctor> showDoctor(@Path("id") Integer id);
+
+    @GET("api/user/{id}")
+    Call<User> showUser(@Path("id") Integer id);
+
+    @FormUrlEncoded
+    @POST("api/patient_doctor/{id}")
+    Call<ResponseMessage> doctorRating(@Path("id") Integer id,
+                                       @Field("doctor_id") Integer doctor_id,
+                                       @Field("valorated") Integer valorated);
+
+
 
 
 

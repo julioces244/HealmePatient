@@ -12,9 +12,26 @@ public class Doctor {
     private Integer certificated;
     private Integer office_worker;
     private Integer isOnline;
+    private Double valoration;
     private User user;
+    private List<Speciality> specialities;
     private Office office;
 
+    public List<Speciality> getSpecialities() {
+        return specialities;
+    }
+
+    public void setSpecialities(List<Speciality> specialities) {
+        this.specialities = specialities;
+    }
+
+    public Double getValoration() {
+        return valoration;
+    }
+
+    public void setValoration(Double valoration) {
+        this.valoration = valoration;
+    }
 
     public Integer getIsOnline() {
         return isOnline;

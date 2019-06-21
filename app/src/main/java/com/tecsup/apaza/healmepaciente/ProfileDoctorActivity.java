@@ -18,10 +18,12 @@ public class ProfileDoctorActivity extends  BaseActivity {
     private TextView nameTxt;
     private TextView lastnameTxt;
     private TextView emailTxt;
-    private TextView phoneTxt;
+    private TextView phoneTxt, valorationTxt;
     private Button mCallButton;
     private CircularImageView ivImageViewFromUrl;
     private String nombr, emai, phone, images, identity_document;
+    private Double valor;
+    private Integer id_doc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +32,18 @@ public class ProfileDoctorActivity extends  BaseActivity {
         nameTxt = (TextView) findViewById(R.id.name);
         emailTxt = (TextView) findViewById(R.id.email);
         phoneTxt = (TextView) findViewById(R.id.phone);
+        valorationTxt = (TextView) findViewById(R.id.dc_valoration);
         mCallButton = (Button) findViewById(R.id.callButton);
         mCallButton.setEnabled(false);
         mCallButton.setOnClickListener(buttonClickListener);
 
+        id_doc = getIntent().getExtras().getInt("id");
         nombr = getIntent().getExtras().getString("name");
         emai = getIntent().getExtras().getString("email");
         phone = getIntent().getExtras().getString("phone");
         images = getIntent().getExtras().getString("image");
         identity_document = getIntent().getExtras().getString("identity_document");
+        valor = getIntent().getExtras().getDouble("valoration");
         Toast.makeText(ProfileDoctorActivity.this, identity_document, Toast.LENGTH_SHORT).show();
         ivImageViewFromUrl = (CircularImageView)findViewById(R.id.iv_image_from_url);
 
@@ -50,7 +55,14 @@ public class ProfileDoctorActivity extends  BaseActivity {
         nameTxt.setText(nombr);
         emailTxt.setText(emai);
         phoneTxt.setText(phone);
+        valorationTxt.setText(valor.toString());
 
+    }
+
+    public void gorating(View view){
+        Intent intent = new Intent(ProfileDoctorActivity.this, RatingActivity.class);
+        intent.putExtra("id_doctor", id_doc);
+        startActivity(intent);
     }
 
     private void stopButtonClicked() {

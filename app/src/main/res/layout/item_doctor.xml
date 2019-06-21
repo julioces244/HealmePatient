@@ -1,72 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
     android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
     android:layout_marginBottom="8dp"
-    app:cardCornerRadius="10dp"
-    android:focusable="true"
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground">
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="#03A9F4"
+    app:cardCornerRadius="10dp">
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="10dp">
 
-        <com.mikhaellopez.circularimageview.CircularImageView
-        android:id="@+id/foto_image"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_alignParentStart="true"
-        android:layout_marginEnd="16dp"
-            app:civ_border_color="#EEEEEE"
-            app:civ_border_width="2dp"
-        />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
 
-    <TextView
-        android:id="@+id/name_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/foto_image"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Name doctor"/>
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/foto_image"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="16dp"
+                app:civ_border_color="#EEEEEE"
+                app:civ_border_width="2dp" />
 
-    <TextView
-        android:id="@+id/lastname_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/foto_image"
-        android:layout_below="@+id/name_text"
-        android:layout_marginBottom="8dp"
-        android:textSize="16sp"
-        android:text="Lastname doctor"/>
+            <TextView
+                android:id="@+id/name_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/foto_image"
+                android:text="Name doctor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/state"
-            android:layout_width="100dp"
-            android:layout_height="19dp"
-            android:layout_below="@+id/lastname_text"
-            android:layout_marginBottom="8dp"
-            android:layout_toEndOf="@+id/foto_image"
-            android:text="Conectado"
-            android:textSize="16sp" />
+            <TextView
+                android:id="@+id/lastname_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name_text"
+                android:layout_marginBottom="8dp"
+                android:layout_toEndOf="@+id/foto_image"
+                android:text="Lastname doctor"
+                android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/btnstate"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_below="@+id/lastname_text"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="3dp"
-            android:layout_toRightOf="@+id/state"
-            android:background="@drawable/btn_round" />
+            <TextView
+                android:id="@+id/speciality_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lastname_text"
+                android:layout_marginBottom="8dp"
+                android:layout_toEndOf="@+id/foto_image"
+                android:text="Medicina General"
+                android:textColor="@color/startblue"
+                android:textSize="16sp" />
 
-    </RelativeLayout>
+
+            <TextView
+                android:id="@+id/state"
+                android:layout_width="100dp"
+                android:layout_height="19dp"
+                android:layout_below="@+id/speciality_text"
+                android:layout_marginBottom="8dp"
+                android:layout_toEndOf="@+id/foto_image"
+                android:text="Conectado"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnstate"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_below="@+id/speciality_text"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/state"
+                android:background="@drawable/btn_round" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 
 
 </android.support.v7.widget.CardView>

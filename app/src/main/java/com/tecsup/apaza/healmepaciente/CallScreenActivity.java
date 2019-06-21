@@ -174,7 +174,7 @@ public class CallScreenActivity extends BaseActivity {
             call.hangup();
 
         }
-        //finish();
+        finish();
 
     }
 
