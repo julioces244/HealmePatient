@@ -1,4 +1,4 @@
-package com.tecsup.apaza.healmepaciente.Class;
+package com.tecsup.apaza.healmepaciente.models;
 
 import java.util.Date;
 
@@ -56,9 +56,7 @@ public class Images {
         return commentable_type;
     }
 
-    public void setCommentable_type(String commentable_type) {
-        this.commentable_type = commentable_type;
-    }
+    public void setCommentable_type(String commentable_type) { this.commentable_type = commentable_type; }
 
     public String getReason() {
         return reason;
@@ -66,5 +64,18 @@ public class Images {
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    @Override
+    public String toString() {
+        return "Images{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                ", date=" + date +
+                ", commentable_id=" + commentable_id +
+                ", commentable_type='" + commentable_type + '\'' +
+                ", reason='" + reason + '\'' +
+                '}';
     }
 }

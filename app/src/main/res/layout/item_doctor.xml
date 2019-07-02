@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -11,28 +9,18 @@
     android:layout_marginBottom="8dp"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="#03A9F4"
     app:cardCornerRadius="10dp">
 
-    <android.support.v7.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardCornerRadius="10dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
+        android:padding="10dp"
+        android:background="@drawable/background_doctor">
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/foto_image"
@@ -76,7 +64,7 @@
 
             <TextView
                 android:id="@+id/state"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_below="@+id/speciality_text"
                 android:layout_marginBottom="8dp"
@@ -89,14 +77,13 @@
                 android:layout_width="15dp"
                 android:layout_height="15dp"
                 android:layout_below="@+id/speciality_text"
-                android:layout_marginLeft="0dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="3dp"
                 android:layout_toRightOf="@+id/state"
                 android:background="@drawable/btn_round" />
 
-        </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
 
 </android.support.v7.widget.CardView>

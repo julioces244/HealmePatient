@@ -1,4 +1,4 @@
-package com.tecsup.apaza.healmepaciente.Class;
+package com.tecsup.apaza.healmepaciente.models;
 
 import java.util.Date;
 import java.util.List;
@@ -69,9 +69,7 @@ public class Doctor {
         return digital_signature;
     }
 
-    public void setDigital_signature(String digital_signature) {
-        this.digital_signature = digital_signature;
-    }
+    public void setDigital_signature(String digital_signature) { this.digital_signature = digital_signature; }
 
     public Integer getCertificated() {
         return certificated;
@@ -103,5 +101,22 @@ public class Doctor {
 
     public void setOffice(Office office) {
         this.office = office;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "id=" + id +
+                ", user_id=" + user_id +
+                ", work_experience=" + work_experience +
+                ", digital_signature='" + digital_signature + '\'' +
+                ", certificated=" + certificated +
+                ", office_worker=" + office_worker +
+                ", isOnline=" + isOnline +
+                ", valoration=" + valoration +
+                ", user=" + user +
+                ", specialities=" + specialities +
+                ", office=" + office +
+                '}';
     }
 }

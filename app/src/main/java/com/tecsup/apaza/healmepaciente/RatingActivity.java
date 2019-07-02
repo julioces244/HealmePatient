@@ -1,6 +1,5 @@
 package com.tecsup.apaza.healmepaciente;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
@@ -15,16 +14,15 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tecsup.apaza.healmepaciente.Class.Doctor;
-import com.tecsup.apaza.healmepaciente.Class.ResponseMessage;
-import com.tecsup.apaza.healmepaciente.Class.User;
+import com.tecsup.apaza.healmepaciente.models.ResponseMessage;
+import com.tecsup.apaza.healmepaciente.services.ApiService;
+import com.tecsup.apaza.healmepaciente.services.ApiServiceGenerator;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.tecsup.apaza.healmepaciente.LoginActivity.PREFS_NAME;
-import static org.webrtc.ContextUtils.getApplicationContext;
 
 public class RatingActivity extends AppCompatActivity {
 

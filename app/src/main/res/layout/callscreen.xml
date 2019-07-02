@@ -63,12 +63,15 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-            android:id="@+id/bottomPanel"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/final_background"
-            android:layout_weight="1">
+    <LinearLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/final_background"
+        android:layout_weight="1">
+
         <Button
                 android:id="@+id/hangupButton"
                 android:paddingBottom="20dp"
@@ -80,16 +83,17 @@
                 android:background="@color/redcalldown"/>
 
         <Button
+            android:visibility="invisible"
             android:id="@+id/btnpagar"
             android:paddingBottom="20dp"
             android:paddingTop="20dp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="PAGAR"
             android:background="@color/startblue"
             android:layout_toRightOf="@id/hangupButton"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

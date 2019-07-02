@@ -1,10 +1,9 @@
-package com.tecsup.apaza.healmepaciente;
+package com.tecsup.apaza.healmepaciente.services;
 
-//import com.tecsup.apaza.healmepaciente.Class.Doctor;
-import com.tecsup.apaza.healmepaciente.Class.Doctor;
-import com.tecsup.apaza.healmepaciente.Class.Office;
-import com.tecsup.apaza.healmepaciente.Class.ResponseMessage;
-import com.tecsup.apaza.healmepaciente.Class.User;
+import com.tecsup.apaza.healmepaciente.models.Doctor;
+import com.tecsup.apaza.healmepaciente.models.Office;
+import com.tecsup.apaza.healmepaciente.models.ResponseMessage;
+import com.tecsup.apaza.healmepaciente.models.User;
 
 import java.util.List;
 
@@ -13,18 +12,15 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ApiService {
 
-    String API_BASE_URL = "http://52.45.158.42";
-
-    @GET("api/user")
+    @GET("user")
     Call<List<User>> getUsers();
 
     @FormUrlEncoded
-    @POST("/api/user")
+    @POST("user")
     Call<ResponseMessage> createDoctor(@Field("email") String email,
                                          @Field("password") String password,
                                          @Field("name") String name,
@@ -36,28 +32,28 @@ public interface ApiService {
                                          @Field("identity_document") String identity_document);
 
     @FormUrlEncoded
-    @POST("/api/login_general")
+    @POST("login_general")
     Call<User> loginUser(@Field("email") String email,
                                     @Field("password") String password);
 
 
-    @GET("api/office")
+    @GET("office")
     Call<List<Office>> getOffices();
 
-    @GET("api/doctor_all")
+    @GET("doctor_all")
     Call<List<Doctor>> getDoctors();
 
-    @GET("api/doctor")
+    @GET("doctor")
     Call<List<Doctor>> getDoctorsConnected();
 
-    @GET("api/doctor/{id}")
+    @GET("doctor/{id}")
     Call<Doctor> showDoctor(@Path("id") Integer id);
 
-    @GET("api/user/{id}")
+    @GET("user/{id}")
     Call<User> showUser(@Path("id") Integer id);
 
     @FormUrlEncoded
-    @POST("api/patient_doctor/{id}")
+    @POST("patient_doctor/{id}")
     Call<ResponseMessage> doctorRating(@Path("id") Integer id,
                                        @Field("doctor_id") Integer doctor_id,
                                        @Field("valorated") Integer valorated);

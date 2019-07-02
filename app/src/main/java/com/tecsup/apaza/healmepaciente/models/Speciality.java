@@ -1,4 +1,4 @@
-package com.tecsup.apaza.healmepaciente.Class;
+package com.tecsup.apaza.healmepaciente.models;
 
 public class Speciality {
 
@@ -46,5 +46,16 @@ public class Speciality {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Speciality{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", slug='" + slug + '\'' +
+                ", description='" + description + '\'' +
+                ", usuario=" + usuario +
+                '}';
     }
 }

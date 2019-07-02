@@ -18,7 +18,9 @@ import com.sinch.android.rtc.calling.CallEndCause;
 import com.sinch.android.rtc.calling.CallState;
 import com.sinch.android.rtc.video.VideoCallListener;
 import com.sinch.android.rtc.video.VideoController;
-import com.tecsup.apaza.healmepaciente.Class.AudioPlayer;
+import com.tecsup.apaza.healmepaciente.models.AudioPlayer;
+import com.tecsup.apaza.healmepaciente.sinch.BaseActivity;
+import com.tecsup.apaza.healmepaciente.sinch.SinchService;
 
 import java.util.List;
 import java.util.Locale;
@@ -298,9 +300,11 @@ public class CallScreenActivity extends BaseActivity {
             mAudioPlayer.stopProgressTone();
             setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
             String endMsg = "Call ended: " + call.getDetails().toString();
-            Toast.makeText(CallScreenActivity.this, endMsg, Toast.LENGTH_LONG).show();
-
+            Toast.makeText(CallScreenActivity.this, "Llamada Finalizada", Toast.LENGTH_LONG).show();
             endCall();
+
+            startActivity(new Intent(CallScreenActivity.this, NewPaymentActivity.class));
+
         }
 
         @Override

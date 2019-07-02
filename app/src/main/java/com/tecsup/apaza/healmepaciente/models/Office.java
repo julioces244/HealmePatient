@@ -1,4 +1,4 @@
-package com.tecsup.apaza.healmepaciente.Class;
+package com.tecsup.apaza.healmepaciente.models;
 
 public class Office {
     private Integer id;
@@ -54,5 +54,17 @@ public class Office {
 
     public void setGeo_coordinate(String geo_coordinate) {
         this.geo_coordinate = geo_coordinate;
+    }
+
+    @Override
+    public String toString() {
+        return "Office{" +
+                "id=" + id +
+                ", doctor_id=" + doctor_id +
+                ", Adress='" + Adress + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", geo_coordinate='" + geo_coordinate + '\'' +
+                '}';
     }
 }

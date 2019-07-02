@@ -1,4 +1,4 @@
-package com.tecsup.apaza.healmepaciente;
+package com.tecsup.apaza.healmepaciente.sinch;
 
 
 import android.Manifest;
@@ -26,6 +26,7 @@ import com.sinch.android.rtc.calling.Call;
 import com.sinch.android.rtc.calling.CallClient;
 import com.sinch.android.rtc.calling.CallClientListener;
 import com.sinch.android.rtc.video.VideoController;
+import com.tecsup.apaza.healmepaciente.IncomingCallScreenActivity;
 
 public class SinchService extends Service {
 

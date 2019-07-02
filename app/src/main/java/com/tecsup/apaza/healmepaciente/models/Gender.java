@@ -1,4 +1,4 @@
-package com.tecsup.apaza.healmepaciente.Class;
+package com.tecsup.apaza.healmepaciente.models;
 
 public class Gender {
 
@@ -28,5 +28,14 @@ public class Gender {
 
     public void setAbbreviated(String abbreviated) {
         this.abbreviated = abbreviated;
+    }
+
+    @Override
+    public String toString() {
+        return "Gender{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", abbreviated='" + abbreviated + '\'' +
+                '}';
     }
 }

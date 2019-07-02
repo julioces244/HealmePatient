@@ -9,10 +9,11 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-import com.tecsup.apaza.healmepaciente.Adapters.UsersAdapter;
+import com.tecsup.apaza.healmepaciente.adapters.UsersAdapter;
 //import com.tecsup.apaza.healmepaciente.Class.Doctor;
-import com.tecsup.apaza.healmepaciente.Class.Doctor;
-import com.tecsup.apaza.healmepaciente.Class.User;
+import com.tecsup.apaza.healmepaciente.models.Doctor;
+import com.tecsup.apaza.healmepaciente.services.ApiService;
+import com.tecsup.apaza.healmepaciente.services.ApiServiceGenerator;
 
 import java.util.List;
 

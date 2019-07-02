@@ -25,7 +25,7 @@
         android:background="@drawable/bg_round"
         android:elevation="5dp"
         android:iconifiedByDefault="false"
-        android:queryHint="Search..."
+        android:queryHint="Ubicar consultorio..."
         android:visibility="visible"
         tools:visibility="visible" />
 

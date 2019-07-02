@@ -1,19 +1,21 @@
 package com.tecsup.apaza.healmepaciente;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.sinch.android.rtc.calling.Call;
 import com.squareup.picasso.Picasso;
+import com.tecsup.apaza.healmepaciente.services.ApiServiceGenerator;
+import com.tecsup.apaza.healmepaciente.sinch.BaseActivity;
+import com.tecsup.apaza.healmepaciente.sinch.SinchService;
 
-public class ProfileDoctorActivity extends  BaseActivity {
+public class ProfileDoctorActivity extends BaseActivity {
 
     private TextView nameTxt;
     private TextView lastnameTxt;
@@ -23,17 +25,19 @@ public class ProfileDoctorActivity extends  BaseActivity {
     private CircularImageView ivImageViewFromUrl;
     private String nombr, emai, phone, images, identity_document;
     private Double valor;
-    private Integer id_doc;
+    private Integer id_doc, status;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_doctor);
-        nameTxt = (TextView) findViewById(R.id.name);
-        emailTxt = (TextView) findViewById(R.id.email);
-        phoneTxt = (TextView) findViewById(R.id.phone);
-        valorationTxt = (TextView) findViewById(R.id.dc_valoration);
-        mCallButton = (Button) findViewById(R.id.callButton);
+
+        nameTxt = findViewById(R.id.name);
+        emailTxt = findViewById(R.id.email);
+        phoneTxt = findViewById(R.id.phone);
+        valorationTxt = findViewById(R.id.dc_valoration);
+        mCallButton = findViewById(R.id.callButton);
         mCallButton.setEnabled(false);
         mCallButton.setOnClickListener(buttonClickListener);
 
@@ -44,18 +48,20 @@ public class ProfileDoctorActivity extends  BaseActivity {
         images = getIntent().getExtras().getString("image");
         identity_document = getIntent().getExtras().getString("identity_document");
         valor = getIntent().getExtras().getDouble("valoration");
-        Toast.makeText(ProfileDoctorActivity.this, identity_document, Toast.LENGTH_SHORT).show();
-        ivImageViewFromUrl = (CircularImageView)findViewById(R.id.iv_image_from_url);
+        status = getIntent().getExtras().getInt("status");
+        ivImageViewFromUrl = findViewById(R.id.iv_image_from_url);
 
-
-        String url = ApiService.API_BASE_URL + "/storage/" + images;
+        String url = ApiServiceGenerator.API_BASE_URL + "/storage/" + images;
         Picasso.with(getApplicationContext()).load(url).into(ivImageViewFromUrl);
-
 
         nameTxt.setText(nombr);
         emailTxt.setText(emai);
         phoneTxt.setText(phone);
         valorationTxt.setText(valor.toString());
+
+        if (status != 1) {
+            mCallButton.setVisibility(View.INVISIBLE);
+        }
 
     }
 
@@ -77,12 +83,10 @@ public class ProfileDoctorActivity extends  BaseActivity {
         mCallButton.setEnabled(true);
     }
 
-
-
     private void callButtonClicked() {
         String userName = identity_document ;
         if (userName.isEmpty()) {
-            Toast.makeText(this, "Please enter a user to call", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Oop! parece que no se puede realizar la llamada", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -94,19 +98,10 @@ public class ProfileDoctorActivity extends  BaseActivity {
         startActivity(callScreen);
     }
 
-
-
-   private View.OnClickListener buttonClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.callButton:
-                    callButtonClicked();
-                    break;
-
-            }
-        }
-    };
-
+   private View.OnClickListener buttonClickListener = v -> {
+       if (v.getId() == R.id.callButton) {
+           callButtonClicked();
+       }
+   };
 
 }

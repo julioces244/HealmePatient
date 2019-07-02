@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/final_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="30dp"
+    android:gravity="center"
     tools:context=".RegisterActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        app:srcCompat="@drawable/logohealme" />
+        android:layout_marginBottom="50dp"
+        app:srcCompat="@drawable/logohealme"
+        android:contentDescription="Sin contenido de desciprcion" />
 
     <EditText
         android:id="@+id/et_email"
@@ -32,22 +32,11 @@
         android:hint="Ingrese correo"
         android:textColorHint="#d0d0d0"
         android:paddingTop="5dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingLeft="20dp"
-        android:drawableLeft="@drawable/ic_email"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:drawableStart="@drawable/ic_email"
         android:fontFamily="sans-serif"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/et_email"
-        android:background="#CCCCCC"></View>
+        android:layout_marginTop="0.5dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -56,25 +45,16 @@
         android:inputType="textPassword"
         android:ems="10"
         android:background="#FFFFFF"
-        android:layout_below="@+id/et_email"
         android:textSize="15sp"
         android:textColor="#333333"
         android:cursorVisible="true"
         android:drawablePadding="25dp"
-        android:hint="Ingrese contraseña"
+        android:hint="Contraeña mínima 6 dígitos"
+        android:layout_marginTop="0.5dp"
         android:textColorHint="#d0d0d0"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:paddingStart="20dp"
+        android:paddingEnd="10dp"
         android:drawableStart="@drawable/ic_password"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/et_password"
-        android:background="#CCCCCC"></View>
 
     <EditText
         android:layout_width="match_parent"
@@ -83,26 +63,17 @@
         android:ems="10"
         android:background="#FFFFFF"
         android:textCursorDrawable="@null"
-        android:layout_below="@+id/et_password"
         android:textSize="15sp"
         android:textColor="#333333"
         android:cursorVisible="true"
         android:drawablePadding="25dp"
         android:hint="Ingrese nombres"
         android:textColorHint="#d0d0d0"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="0.5dp"
         android:paddingStart="20dp"
+        android:paddingEnd="10dp"
         android:fontFamily="sans-serif"
         android:drawableStart="@drawable/ic_name"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/edittext_name"
-        android:background="#CCCCCC"></View>
 
     <EditText
         android:id="@+id/edittext_lastname"
@@ -117,21 +88,11 @@
         android:hint="Ingrese apellidos"
         android:textColorHint="#d0d0d0"
         android:paddingTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingLeft="20dp"
-        android:drawableLeft="@drawable/ic_name"
+        android:paddingStart="20dp"
+        android:drawableStart="@drawable/ic_name"
+        android:paddingEnd="10dp"
         android:fontFamily="sans-serif"
-        android:layout_below="@+id/edittext_name"
-        android:layout_centerHorizontal="true"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/edittext_lastname"
-        android:background="#CCCCCC"></View>
+        android:layout_marginTop="0.5dp"/>
 
     <EditText
         android:id="@+id/edittext_phone"
@@ -146,21 +107,11 @@
         android:hint="Ingrese telefono"
         android:textColorHint="#d0d0d0"
         android:paddingTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingLeft="20dp"
-        android:drawableLeft="@drawable/ic_phone_blue"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:drawableStart="@drawable/ic_phone_blue"
         android:fontFamily="sans-serif"
-        android:layout_below="@+id/edittext_lastname"
-        android:layout_centerHorizontal="true"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_below="@+id/edittext_phone"
-        android:background="#CCCCCC"></View>
+        android:layout_marginTop="0.5dp"/>
 
     <EditText
         android:id="@+id/edittext_dni"
@@ -176,13 +127,11 @@
         android:maxLength="8"
         android:textColorHint="#d0d0d0"
         android:paddingTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingLeft="20dp"
-        android:drawableLeft="@drawable/ic_dni"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:drawableStart="@drawable/ic_dni"
         android:fontFamily="sans-serif"
-        android:layout_below="@+id/edittext_phone"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginTop="0.5dp"/>
 
 
     <Button
@@ -191,16 +140,13 @@
         android:id="@+id/bt_register"
         android:background="@drawable/rounded_button"
         android:layout_marginTop="7dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:textSize="20sp"
         android:textColor="#FFFFFF"
         android:fontFamily="sans-serif"
         android:textStyle="normal|bold"
-        android:layout_below="@+id/edittext_dni"
         android:onClick="callRegisterDoctor"
-        android:text="Registrar"/>
+        android:text="Registrarse"/>
 
 
 
-</RelativeLayout>
+</LinearLayout>

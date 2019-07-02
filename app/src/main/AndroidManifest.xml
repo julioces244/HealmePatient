@@ -33,13 +33,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".RatingActivity">
 
         </activity>
         <activity android:name=".NewPaymentActivity" />
 
-        <service android:name=".SinchService" />
+        <service android:name=".sinch.SinchService" />
 
         <activity android:name=".ProfileDoctorActivity" />
         <activity android:name=".SinchCall" />

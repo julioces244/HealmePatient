@@ -1,20 +1,16 @@
 package com.tecsup.apaza.healmepaciente;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,13 +25,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.special.ResideMenu.ResideMenu;
-import com.tecsup.apaza.healmepaciente.Adapters.UsersAdapter;
-import com.tecsup.apaza.healmepaciente.Class.Office;
-import com.tecsup.apaza.healmepaciente.Class.User;
+import com.tecsup.apaza.healmepaciente.models.Office;
+import com.tecsup.apaza.healmepaciente.services.ApiService;
+import com.tecsup.apaza.healmepaciente.services.ApiServiceGenerator;
 
 import java.io.IOException;
 import java.util.List;

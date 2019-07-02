@@ -1,4 +1,4 @@
-package com.tecsup.apaza.healmepaciente.Class;
+package com.tecsup.apaza.healmepaciente.models;
 
 import java.util.Date;
 import java.util.List;
@@ -16,6 +16,8 @@ public class User {
     private Date birth_date;
     private String user_type;
     private Gender gender;
+    private String base_url;
+
     private List<Images> images;
 
     public List<Images> getImages() {
@@ -120,6 +122,34 @@ public class User {
 
     public void setUser_type(String user_type) {
         this.user_type = user_type;
+    }
+
+    public String getBase_url() {
+        return base_url;
+    }
+
+    public void setBase_url(String base_url) {
+        this.base_url = base_url;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", gender_id=" + gender_id +
+                ", document_type='" + document_type + '\'' +
+                ", identity_document='" + identity_document + '\'' +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birth_date=" + birth_date +
+                ", user_type='" + user_type + '\'' +
+                ", gender=" + gender +
+                ", base_url='" + base_url + '\'' +
+                ", images=" + images +
+                '}';
     }
 }
 

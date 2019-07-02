@@ -12,7 +12,9 @@ import com.sinch.android.rtc.PushPair;
 import com.sinch.android.rtc.calling.Call;
 import com.sinch.android.rtc.calling.CallEndCause;
 import com.sinch.android.rtc.video.VideoCallListener;
-import com.tecsup.apaza.healmepaciente.Class.AudioPlayer;
+import com.tecsup.apaza.healmepaciente.models.AudioPlayer;
+import com.tecsup.apaza.healmepaciente.sinch.BaseActivity;
+import com.tecsup.apaza.healmepaciente.sinch.SinchService;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.tecsup.apaza.healmepaciente;
+package com.tecsup.apaza.healmepaciente.sinch;
 
 import android.app.Activity;
 import android.content.ComponentName;

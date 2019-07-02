@@ -1,15 +1,12 @@
 package com.tecsup.apaza.healmepaciente;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,11 +14,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.github.jlmd.animatedcircleloadingview.AnimatedCircleLoadingView;
 import com.sinch.android.rtc.SinchError;
-import com.steelkiwi.library.SlidingSquareLoaderView;
-import com.tecsup.apaza.healmepaciente.Class.ResponseMessage;
-import com.tecsup.apaza.healmepaciente.Class.User;
+import com.tecsup.apaza.healmepaciente.models.User;
+import com.tecsup.apaza.healmepaciente.services.ApiService;
+import com.tecsup.apaza.healmepaciente.services.ApiServiceGenerator;
+import com.tecsup.apaza.healmepaciente.sinch.BaseActivity;
+import com.tecsup.apaza.healmepaciente.sinch.SinchService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,7 +29,7 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
 
     private static final String TAG = LoginActivity.class.getSimpleName();
 
-    public static final int REQUEST_CODE=101;
+    public static final int REQUEST_CODE = 101;
     EditText email;
     EditText password;
     private Button mLoginButton;
@@ -71,10 +69,6 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
                     Manifest.permission.CAMERA) && ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.READ_PHONE_STATE)) {
 
-                // Show an expanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-
             } else {
                 ActivityCompat.requestPermissions(LoginActivity.this,
                         new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_PHONE_STATE},
@@ -112,10 +106,7 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
                         3);
             }}*/
 
-
-
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -166,7 +157,6 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
         }*/
     }}
 
-
     public void goregister(View view){
         //anim.startDeterminate();
         //anim.stopOk();;
@@ -181,7 +171,6 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
                 RegisterActivity.class);
         startActivity(intent);
     }
-
 
     ////////////////////////////////
     @Override
@@ -213,8 +202,6 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
         openPlaceCallActivity();
     }
 
-
-
     private void openPlaceCallActivity() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -234,7 +221,7 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
 
         call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(@NonNull Call<User> call, @NonNull Response<User> response) {
                 try {
 
                     int statusCode = response.code();
@@ -243,17 +230,8 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
                     if (response.isSuccessful()) {
 
                         User responseMessage = response.body();
-                        Log.d(TAG, "USER NAME: " + responseMessage.getName());
-
                         String userName =  responseMessage.getIdentity_document();
                         Integer id = responseMessage.getId();
-
-                        //Toast.makeText(LoginActivity.this, userName,Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "DNI: " + userName);
-
-
-
-
 
                         if (!userName.equals(getSinchServiceInterface().getUserName())) {
                             getSinchServiceInterface().stopClient();
@@ -268,18 +246,14 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
                         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putInt("key_id",id);
-                        editor.commit();
+                        editor.apply();
 
-
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        //intent.putExtra("id_user", id);
-                        startActivity(intent);
-
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
 
                     } else {
                         Log.e(TAG, "onError: " + response.errorBody().string());
-                        throw new Exception("Error en el servicio");
-
+                        throw new Exception("Correo y/o contraseña incorrectos");
 
                     }
 
@@ -293,9 +267,9 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(@NonNull Call<User> call, @NonNull Throwable t) {
                 Log.e(TAG, "onFailure: " + t.toString());
-                Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Oops! Parece que la conexión fallo.", Toast.LENGTH_LONG).show();
             }
 
         });
